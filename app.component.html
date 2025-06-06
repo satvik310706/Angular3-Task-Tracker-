@@ -1,6 +1,6 @@
 <h1>🧠 Smart Task Tracker</h1>
 
-<!-- Task Input Form -->
+
 <div>
   <input [(ngModel)]="taskName" #taskNameRef placeholder="Task Name" />
   <select [(ngModel)]="taskPriority" #priorityRef>
@@ -12,14 +12,14 @@
   <button (click)="addTask(taskNameRef, priorityRef, dueDateRef)">Add Task</button>
 </div>
 
-<!-- Filters -->
+
 <div>
   <button (click)="filter = 'all'">All Tasks</button>
   <button (click)="filter = 'completed'">Completed Only</button>
   <button (click)="filter = 'pending'">Pending Only</button>
 </div>
 
-<!-- Summary -->
+
 <div *ngIf="tasks.length">
   <p>Total: {{ tasks.length }} |
      ✅ Completed: {{ completedCount }} |
@@ -27,10 +27,10 @@
      ⚠️ Overdue: {{ overdueCount }}</p>
 </div>
 
-<!-- No tasks message -->
+
 <p *ngIf="filteredTasks().length === 0">No tasks found.</p>
 
-<!-- Task List -->
+
 <ul>
   <li *ngFor="let task of filteredTasks()" 
       [ngClass]="{'overdue': isOverdue(task), 'completed': task.completed}"
